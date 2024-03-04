@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mainapp-service:
+    build:
+      context: ./mainapp
+      dockerfile: mainapp.dockerfile
+    restart: always
+    ports:
+      - "8000:80"
+    deploy:
+      mode: replicated
+      replicas: 1
