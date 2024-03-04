@@ -23,7 +23,7 @@ func routes() http.Handler {
 	// Heartbeat middleware allows to check the service availability.
 	r.Use(middleware.Heartbeat("/ping"))
 
-	r.Get("/", handleMainApp)
+	r.Post("/", handleMainApp)
 
 	return r
 }

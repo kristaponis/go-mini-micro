@@ -6,6 +6,7 @@
             <div class="col">
                 <h1 class="mt-5">Mini microservices</h1>
                 <hr>
+                <a id="mainApp" class="btn btn-outlined-secondary" href="javascript:void(0);">Test MainApp</a>
 
                 <div id="output" class="mt-5" style="outline: 1px solid silver; padding: 2em;">
                     <span class="text-muted">Output</span>
@@ -31,6 +32,27 @@
 
 {{define "js"}}
 <script>
+    let mainAppBtn = document.getElementById("mainApp")
+    let output = document.getElementById("output")
+    let payload = document.getElementById("payload")
+    let received = document.getElementById("received")
 
+    mainAppBtn.addEventListener("click", function() {
+        const body = {method: "POST"}
+        fetch("http:\/\/localhost:8080", body)
+            .then((response) => response.json())
+            .then((data) => {
+                payload.innerHTML = "empty stuff"
+                received.innerHTML = data
+                if (data.error) {
+                    console.log(data.message)
+                } else {
+                    output.innerHTML += `Response from mainApp service: ${data.message}`
+                }
+            })
+            .catch((error) => {
+                output.innerHTML = `Error: ${error}`
+            })
+    })
 </script>
 {{end}}

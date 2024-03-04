@@ -7,7 +7,7 @@ services:
       dockerfile: mainapp.dockerfile
     restart: always
     ports:
-      - "8000:80"
+      - "8080:80"
     deploy:
       mode: replicated
       replicas: 1

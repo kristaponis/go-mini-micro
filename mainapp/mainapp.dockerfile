@@ -7,14 +7,16 @@ COPY . /app
 
 WORKDIR /app
 
-RUN CGO_ENABLED=0 go build -o mainApp .
+RUN CGO_ENABLED=0 go build -o mainApp
+
+RUN chmod +x /app/mainApp
 
 # alpine linux docker image
-# with only mainapp executable
+# with only mainApp executable
 FROM alpine:latest
 
 RUN mkdir /app
 
 COPY --from=mainapp /app/mainApp /app
 
-CMD ["/app/mainApp"]
+CMD [ "/app/mainApp" ]
