@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func handleMainApp(w http.ResponseWriter, r *http.Request) {
+func handleHome(w http.ResponseWriter, r *http.Request) {
 	payload := jsonResponse{
 		Error:   false,
 		Message: "hello from main app",

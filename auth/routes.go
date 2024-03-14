@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"net/http"
 )
@@ -19,11 +18,6 @@ func routes() http.Handler {
 		AllowCredentials: true,
 		MaxAge:           30,
 	}))
-
-	// Heartbeat middleware allows to check the service availability.
-	r.Use(middleware.Heartbeat("/ping"))
-
-	r.Post("/", handleHome)
 
 	return r
 }

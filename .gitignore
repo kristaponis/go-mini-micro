@@ -2,3 +2,9 @@
 .vscode/
 
 .DS_Store
+
+db-data/
+
+mainapp/mainApp
+auth/authApp
+frontend/frontApp
