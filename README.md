@@ -4,3 +4,4 @@ Minimal microservices with Go
 
 - frontend
 - mainapp
+- auth
